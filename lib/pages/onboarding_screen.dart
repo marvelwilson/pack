@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:text/pages/signUp.dart';
+import 'package:text/pages/welcomeScreen.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -108,7 +108,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 // color: Colors.blue,
                 onPressed: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => SignUp()));
+                      MaterialPageRoute(builder: (context) => WelcomeScreen()));
                 },
                 child: const Text(
                   'Skip',
@@ -127,8 +127,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       duration: Duration(microseconds: 300),
                       curve: Curves.easeIn);
                   (currentpage == 2)
-                      ? Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => SignUp()))
+                      ? Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => WelcomeScreen()))
                       : '';
                 },
                 child: const Text(
