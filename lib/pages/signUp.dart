@@ -10,8 +10,9 @@ class SignUp extends StatefulWidget {
   State<SignUp> createState() => _SignUpState();
 }
 
+final PageController pagecontroller = PageController(initialPage: 0);
+
 class _SignUpState extends State<SignUp> {
-  final PageController pagecontroller = PageController(initialPage: 0);
   int currentpage = 0;
   List<Widget> pages = [
     Itemboarding(
@@ -74,25 +75,9 @@ class _SignUpState extends State<SignUp> {
               });
             },
           )),
-          (currentpage < 2)
-              ? MaterialButton(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(5)),
-                  minWidth: 240,
-                  color: Colors.blue,
-                  onPressed: () {
-                    pagecontroller.nextPage(
-                        duration: Duration(microseconds: 300),
-                        curve: Curves.easeIn);
-                  },
-                  child: const Text(
-                    'Next',
-                    style: TextStyle(
-                      color: Colors.white,
-                    ),
-                  ),
-                )
-              : Column(),
+          // (currentpage < 2)
+          //     ?
+          //     : Column(),
         ],
       ),
     );
@@ -190,6 +175,23 @@ class Itemboarding extends StatelessWidget {
                         // validator: _FormValidators.validateName,
                       ),
                     ),
+                    MaterialButton(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5)),
+                      minWidth: 340,
+                      color: Colors.blue,
+                      onPressed: () {
+                        pagecontroller.nextPage(
+                            duration: Duration(microseconds: 300),
+                            curve: Curves.easeIn);
+                      },
+                      child: const Text(
+                        'Next',
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
+                    )
                   ],
                 ),
         ],
